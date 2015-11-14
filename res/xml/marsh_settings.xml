@@ -122,4 +122,10 @@
        android:summary="@string/double_tap_to_sleep_lockscreen_summary"
        android:defaultValue="false" />
 
+    <PreferenceScreen
+       android:key="carrierlabel"
+       android:fragment="com.dirtyunicorns.dutweaks.fragments.CarrierLabel"
+       android:layout="@layout/preference_carrierlabel"
+       android:title="@string/carrier_options" />
+
 </PreferenceScreen>
