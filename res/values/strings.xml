@@ -6060,6 +6060,7 @@
     <!-- Sound & notification > Sound section: Title for the option managing whether or not to vibrate when ringing. [CHAR LIMIT=30] -->
     <string name="vibrate_when_ringing_title">Also vibrate for calls</string>
 
+<<<<<<< HEAD
     <!-- Sound & notification: Notification section header [CHAR LIMIT=30] -->
     <string name="notification_section_header">Notification</string>
 
@@ -7059,6 +7060,28 @@
 
     <!-- Name of feature to change color setting for the display [CHAR LIMIT=60] -->
     <string name="picture_color_mode">Picture color mode</string>
+
+    <!-- Weather settings -->
+    <string name="weather_show_weather_title">Show weather options</string>
+    <string name="weather_show_weather_summary">Enable to show weather options that go along with LockClock</string>
+    <string name="status_bar_show_weather_title">Extended statusbar weather</string>
+    <string name="status_bar_show_weather_summary">Show basic weather in the extended statusbar area</string>
+    <string name="weather_show_location_title">Show location</string>
+    <string name="weather_show_location_summary">Enable to show the location</string>
+    <string name="weather_show_timestamp_title">Show timestamp</string>
+    <string name="weather_show_timestamp_summary">Enable to show the timestamp</string>
+    <string name="weather_condition_icon_title">Condition icon</string>
+    <string name="weather_condition_icon_dlg_title">Pick an icon for displaying the weather condition</string>
+    <string name="weather_condition_icon_monochrome_title">Monochrome</string>
+    <string name="weather_condition_icon_colored_title">Colored</string>
+    <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_colorize_all_icons_title">Colorize all icons</string>
+    <string name="weather_colorize_all_icons_summary">Enable to colorize all icons, disable to colorize only the monochrome icons</string>
+    <string name="colors_title">Colors</string>
+    <string name="icons_title">Icons</string>
+    <string name="text_title">Text</string>
+    <string name="reset_lockscreen_weather">OK</string>
+    <string name="reset_values_message">Reset values?</string>
 
     <!-- Description of feature to change color setting for the display [CHAR LIMIT=NONE] -->
     <string name="picture_color_mode_desc">Use sRGB</string>
