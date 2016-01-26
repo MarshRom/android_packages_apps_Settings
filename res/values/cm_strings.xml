@@ -1096,4 +1096,11 @@
     <string name="last_time_used_label_cm">Last time used:</string>
     <!-- label for usage time -->
     <string name="usage_time_label_cm">Usage time:</string>
+
+    <!-- About phone screen, Marsh version -->
+    <string name="marsh_version">Marsh version</string>
+    <string name="marsh_version_default">Unknown</string>
+
+    <string name="marsh_title">Marsh</string>
+
 </resources>

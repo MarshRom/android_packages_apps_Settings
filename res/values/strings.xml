@@ -14,6 +14,23 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="aaahh_settings_title" product="default">Marsh Settings</string>
+
+    <string name="marsh_settings" product="default">Marsh</string>
+
+    <string name="hook_system_ui_blurred_status_bar_expanded_enabled_pref">Blur Status Bar Background</string>
+    <string name="hook_system_ui_blurred_status_bar_expanded_enabled_pref_summary">Blur the background when you pull down the status bar (reboot required)</string>
+
+    <string name="hook_system_ui_translucent_notifications_pref">Notifications Translucenet</string>
+    <string name="hook_system_ui_translucent_notifications_pref_summary">Set the background of notifications translucenet (reboot required)</string>
+
+    <string name="hook_system_ui_translucent_header_pref">Status Bar Date Bar Translucenet</string>
+    <string name="hook_system_ui_translucent_header_pref_summary">Set the background of status bar date bar translucenet (reboot required)</string>
+
+    <string name="hook_system_ui_translucent_quick_settings_pref">Status Bar Expand Translucenet</string>
+    <string name="hook_system_ui_translucent_quick_settings_pref_summary">Set the background of status bar expand translucenet (reboot required)</string>
+
     <!-- Strings for Dialog yes button -->
     <string name="yes">"Yes"</string>
     <!-- Strings for Dialog no button -->
