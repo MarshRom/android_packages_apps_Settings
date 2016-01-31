@@ -52,6 +52,7 @@ public class MarshSettings extends SettingsPreferenceFragment
     private TwoStatePreference mNotiTrans;
     private TwoStatePreference mHeadSett;
     private TwoStatePreference mQuickSett;
+    private TwoStatePreference mEditButton;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -88,6 +89,12 @@ public class MarshSettings extends SettingsPreferenceFragment
         mQuickSett.setChecked(mQuickSettint);
         mQuickSett.setOnPreferenceChangeListener(this);
 
+        mEditButton = (TwoStatePreference) findPreference("hook_statusbar_editbutton_pref");
+
+        boolean mEditButtonint = (Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_EDITBUTTON_PREFERENCE_KEY, 1) == 1);
+        mEditButton.setChecked(mEditButtonint);
+        mEditButton.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -119,6 +126,10 @@ public class MarshSettings extends SettingsPreferenceFragment
         } else if (preference == mQuickSett) {
             Settings.System.putInt(
                     resolver, Settings.System.TRANSLUCENT_QUICK_SETTINGS_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
+            return true;
+        } else if (preference == mEditButton) {
+            Settings.System.putInt(
+                    resolver, Settings.System.STATUSBAR_EDITBUTTON_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
             return true;
         }
         return false;

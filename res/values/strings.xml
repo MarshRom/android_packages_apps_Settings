@@ -31,6 +31,9 @@
     <string name="hook_system_ui_translucent_quick_settings_pref">Status Bar Expand Translucenet</string>
     <string name="hook_system_ui_translucent_quick_settings_pref_summary">Set the background of status bar expand translucenet (reboot required)</string>
 
+    <string name="hook_statusbar_editbutton_pref">Hide Edit titles button</string>
+    <string name="hook_statusbar_editbutton_pref_summary">Hide Edit titles button in expanded status bar</string>
+
     <!-- Strings for Dialog yes button -->
     <string name="yes">"Yes"</string>
     <!-- Strings for Dialog no button -->
