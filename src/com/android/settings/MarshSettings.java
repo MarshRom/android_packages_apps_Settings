@@ -112,7 +112,7 @@ public class MarshSettings extends SettingsPreferenceFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         Intent i = new Intent("serajr.blurred.system.ui.lp.UPDATE_PREFERENCES");
-        sendBroadcast(i);
+        getContext().sendBroadcast(i);
         if (preference == mExpand) {
             Settings.System.putInt(
                     resolver, Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
