@@ -55,6 +55,7 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.Settings.LockScreenSettingsActivity;
 import com.android.settings.TrustAgentUtils.TrustAgentComponentInfo;
+import com.android.settings.cyanogenmod.LiveLockScreenSettings;
 import com.android.settings.fingerprint.FingerprintEnrollIntroduction;
 import com.android.settings.fingerprint.FingerprintSettings;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -87,6 +88,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     // Lock Settings
     private static final String KEY_UNLOCK_SET_OR_CHANGE = "unlock_set_or_change";
     private static final String KEY_VISIBLE_PATTERN = "visiblepattern";
+    private static final String KEY_VISIBLE_ERROR_PATTERN = "visible_error_pattern";
+    private static final String KEY_VISIBLE_DOTS = "visibledots";
     private static final String KEY_SECURITY_CATEGORY = "security_category";
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
     private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
@@ -114,16 +117,20 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
+    private static final String KEY_GENERAL_CATEGORY = "general_category";
+    private static final String KEY_LIVE_LOCK_SCREEN = "live_lock_screen";
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
-            KEY_VISIBLE_PATTERN, KEY_POWER_INSTANTLY_LOCKS, KEY_SHOW_PASSWORD,
-            KEY_TOGGLE_INSTALL_APPLICATIONS };
+            KEY_VISIBLE_PATTERN, KEY_VISIBLE_ERROR_PATTERN, KEY_VISIBLE_DOTS,
+            KEY_POWER_INSTANTLY_LOCKS, KEY_SHOW_PASSWORD, KEY_TOGGLE_INSTALL_APPLICATIONS };
 
     // Only allow one trust agent on the platform.
     private static final boolean ONLY_ONE_TRUST_AGENT = true;
 
     private static final int MY_USER_ID = UserHandle.myUserId();
+
+    private static final String LIVE_LOCK_SCREEN_FEATURE = "org.cyanogenmod.livelockscreen";
 
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
@@ -134,6 +141,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private ListPreference mLockAfter;
 
     private SwitchPreference mVisiblePattern;
+    private SwitchPreference mVisibleErrorPattern;
+    private SwitchPreference mVisibleDots;
 
     private SwitchPreference mShowPassword;
 
@@ -295,6 +304,13 @@ public class SecuritySettings extends SettingsPreferenceFragment
             // visible pattern
             mVisiblePattern = (SwitchPreference) root.findPreference(KEY_VISIBLE_PATTERN);
 
+            // visible error pattern
+            mVisibleErrorPattern = (SwitchPreference) root.findPreference(
+                    KEY_VISIBLE_ERROR_PATTERN);
+
+            // visible dots
+            mVisibleDots = (SwitchPreference) root.findPreference(KEY_VISIBLE_DOTS);
+
             // lock instantly on power key press
             mPowerButtonInstantlyLocks = (SwitchPreference) root.findPreference(
                     KEY_POWER_INSTANTLY_LOCKS);
@@ -305,6 +321,18 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 mPowerButtonInstantlyLocks.setSummary(getString(
                         R.string.lockpattern_settings_power_button_instantly_locks_summary,
                         trustAgentPreference.getTitle()));
+            }
+
+            // Add live lock screen preference if supported
+            PreferenceGroup generalCategory = (PreferenceGroup)
+                    root.findPreference(KEY_GENERAL_CATEGORY);
+            if (pm.hasSystemFeature(LIVE_LOCK_SCREEN_FEATURE) && generalCategory != null) {
+                Preference liveLockPreference = new Preference(getContext(), null);
+                liveLockPreference.setFragment(LiveLockScreenSettings.class.getCanonicalName());
+                liveLockPreference.setOrder(0);
+                liveLockPreference.setTitle(R.string.live_lock_screen_title);
+                liveLockPreference.setSummary(R.string.live_lock_screen_summary);
+                generalCategory.addPreference(liveLockPreference);
             }
         } else {
             // Append the rest of the settings
@@ -680,8 +708,13 @@ public class SecuritySettings extends SettingsPreferenceFragment
 
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
         if (mVisiblePattern != null) {
-            mVisiblePattern.setChecked(lockPatternUtils.isVisiblePatternEnabled(
-                    MY_USER_ID));
+            mVisiblePattern.setChecked(lockPatternUtils.isVisiblePatternEnabled(MY_USER_ID));
+        }
+        if (mVisibleErrorPattern != null) {
+            mVisibleErrorPattern.setChecked(lockPatternUtils.isShowErrorPath(MY_USER_ID));
+        }
+        if (mVisibleDots != null) {
+            mVisibleDots.setChecked(lockPatternUtils.isVisibleDotsEnabled(MY_USER_ID));
         }
         if (mPowerButtonInstantlyLocks != null) {
             mPowerButtonInstantlyLocks.setChecked(lockPatternUtils.getPowerButtonInstantlyLocks(
@@ -771,6 +804,10 @@ public class SecuritySettings extends SettingsPreferenceFragment
             updateLockAfterPreferenceSummary();
         } else if (KEY_VISIBLE_PATTERN.equals(key)) {
             lockPatternUtils.setVisiblePatternEnabled((Boolean) value, MY_USER_ID);
+        } else if (KEY_VISIBLE_ERROR_PATTERN.equals(key)) {
+            lockPatternUtils.setShowErrorPath((Boolean) value, MY_USER_ID);
+        } else if (KEY_VISIBLE_DOTS.equals(key)) {
+            lockPatternUtils.setVisibleDotsEnabled((Boolean) value, MY_USER_ID);
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
             mLockPatternUtils.setPowerButtonInstantlyLocks((Boolean) value, MY_USER_ID);
         } else if (KEY_SHOW_PASSWORD.equals(key)) {
