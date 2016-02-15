@@ -62,35 +62,30 @@ public class MarshSettings extends SettingsPreferenceFragment
         ContentResolver resolver = getActivity().getContentResolver();
 
         mExpand = (TwoStatePreference) findPreference("hook_system_ui_blurred_status_bar_expanded_enabled_pref");
-
         boolean mExpandint = (Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, 1) == 1);
         mExpand.setChecked(mExpandint);
         mExpand.setOnPreferenceChangeListener(this);
 
         mNotiTrans = (TwoStatePreference) findPreference("hook_system_ui_translucent_notifications_pref");
-
         boolean mNotiTransint = (Settings.System.getInt(resolver,
                 Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, 1) == 1);
         mNotiTrans.setChecked(mNotiTransint);
         mNotiTrans.setOnPreferenceChangeListener(this);
 
         mHeadSett = (TwoStatePreference) findPreference("hook_system_ui_translucent_header_pref");
-
         boolean mHeadSettint = (Settings.System.getInt(resolver,
                 Settings.System.TRANSLUCENT_HEADER_PREFERENCE_KEY, 1) == 1);
         mHeadSett.setChecked(mHeadSettint);
         mHeadSett.setOnPreferenceChangeListener(this);
 
         mQuickSett = (TwoStatePreference) findPreference("hook_system_ui_translucent_quick_settings_pref");
-
         boolean mQuickSettint = (Settings.System.getInt(resolver,
                 Settings.System.TRANSLUCENT_QUICK_SETTINGS_PREFERENCE_KEY, 1) == 1);
         mQuickSett.setChecked(mQuickSettint);
         mQuickSett.setOnPreferenceChangeListener(this);
 
         mEditButton = (TwoStatePreference) findPreference("hook_statusbar_editbutton_pref");
-
         boolean mEditButtonint = (Settings.System.getInt(resolver,
                 Settings.System.STATUSBAR_EDITBUTTON_PREFERENCE_KEY, 1) == 1);
         mEditButton.setChecked(mEditButtonint);
@@ -112,26 +107,30 @@ public class MarshSettings extends SettingsPreferenceFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         Intent i = new Intent("serajr.blurred.system.ui.lp.UPDATE_PREFERENCES");
-        getContext().sendBroadcast(i);
         if (preference == mExpand) {
             Settings.System.putInt(
                     resolver, Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
+            getContext().sendBroadcast(i);
             return true;
         } else if (preference == mNotiTrans) {
             Settings.System.putInt(
                     resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
+            getContext().sendBroadcast(i);
             return true;
         } else if (preference == mHeadSett) {
             Settings.System.putInt(
                     resolver, Settings.System.TRANSLUCENT_HEADER_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
+            getContext().sendBroadcast(i);
             return true;
         } else if (preference == mQuickSett) {
             Settings.System.putInt(
                     resolver, Settings.System.TRANSLUCENT_QUICK_SETTINGS_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
+            getContext().sendBroadcast(i);
             return true;
         } else if (preference == mEditButton) {
             Settings.System.putInt(
                     resolver, Settings.System.STATUSBAR_EDITBUTTON_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
+            getContext().sendBroadcast(i);
             return true;
         }
         return false;
