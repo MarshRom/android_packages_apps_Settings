@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,6 +32,12 @@
 
     <string name="hook_statusbar_editbutton_pref">Hide Edit titles button</string>
     <string name="hook_statusbar_editbutton_pref_summary">Hide Edit titles button in expanded status bar</string>
+
+    <string name="hook_system_ui_blurred_scale">Blur Scale</string>
+    <string name="hook_system_ui_blurred_scale_summary">Quailty of blur image</string>
+
+    <string name="hook_system_ui_blurred_radius">Blur Radius</string>
+    <string name="hook_system_ui_blurred_radius_summary">Amount of blur</string>
 
     <!-- Strings for Dialog yes button -->
     <string name="yes">"Yes"</string>

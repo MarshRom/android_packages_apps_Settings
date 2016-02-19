@@ -22,6 +22,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.TwoStatePreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.SearchIndexableResource;
@@ -53,6 +54,8 @@ public class MarshSettings extends SettingsPreferenceFragment
     private TwoStatePreference mHeadSett;
     private TwoStatePreference mQuickSett;
     private TwoStatePreference mEditButton;
+    private ListPreference mScale;
+    private ListPreference mRadius;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -66,6 +69,16 @@ public class MarshSettings extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, 1) == 1);
         mExpand.setChecked(mExpandint);
         mExpand.setOnPreferenceChangeListener(this);
+
+        mScale = (ListPreference) findPreference("hook_system_ui_blurred_expanded_panel_scale_pref");
+        long currentScale = Settings.System.getLong(resolver, BLUR_SCALE_PREFERENCE_KEY, 20);
+        mScale.setValue(String.valueOf(currentScale));
+        mScale.setOnPreferenceChangeListener(this);
+
+        mRadius = (ListPreference) findPreference("hook_system_ui_blurred_expanded_panel_radius_pref");
+        long currentRadius = Settings.System.getLong(resolver, BLUR_RADIUS_PREFERENCE_KEY, 3);
+        mRadius.setValue(String.valueOf(currentRadius));
+        mRadius.setOnPreferenceChangeListener(this);
 
         mNotiTrans = (TwoStatePreference) findPreference("hook_system_ui_translucent_notifications_pref");
         boolean mNotiTransint = (Settings.System.getInt(resolver,
@@ -95,6 +108,7 @@ public class MarshSettings extends SettingsPreferenceFragment
     @Override
     protected int getMetricsCategory() {
         // todo add a constant in MetricsLogger.java
+        // No.
         return MetricsLogger.MAIN_SETTINGS;
     }
 
@@ -112,6 +126,28 @@ public class MarshSettings extends SettingsPreferenceFragment
                     resolver, Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
             getContext().sendBroadcast(i);
             return true;
+        } else if (preference == mScale) {
+            try {
+                int value = Integer.parseInt((String) objValue);
+                Settings.System.putInt(
+                    resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, value);
+                getContext().sendBroadcast(i);
+                return true;
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "could not persist screen timeout setting", e);
+                return false;
+            }
+        } else if (preference == mRadius) {
+            try {
+                int value = Integer.parseInt((String) objValue);
+                Settings.System.putInt(
+                    resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, value);
+                getContext().sendBroadcast(i);
+                return true;
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "could not persist screen timeout setting", e);
+                return false;
+            }
         } else if (preference == mNotiTrans) {
             Settings.System.putInt(
                     resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));

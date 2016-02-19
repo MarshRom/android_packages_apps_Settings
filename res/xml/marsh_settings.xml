@@ -24,6 +24,22 @@
        android:summary="@string/hook_system_ui_blurred_status_bar_expanded_enabled_pref_summary"
        android:defaultValue="true" />
 
+    <ListPreference
+       android:key="hook_system_ui_blurred_expanded_panel_scale_pref"
+       android:title="@string/hook_system_ui_blurred_scale"
+       android:summary="@string/hook_system_ui_blurred_scale_summary"
+       android:persistent="false"
+       android:entries="@array/screen_timeout_entries"
+       android:entryValues="@array/screen_timeout_values" />
+
+    <ListPreference
+       android:key="hook_system_ui_blurred_expanded_panel_radius_pref"
+       android:title="@string/hook_system_ui_blurred_radius"
+       android:summary="@string/hook_system_ui_blurred_radius_summary"
+       android:persistent="false"
+       android:entries="@array/blur_radius_entries"
+       android:entryValues="@array/blur_radius_entries" />
+
     <SwitchPreference
        android:key="hook_system_ui_translucent_notifications_pref"
        android:title="@string/hook_system_ui_translucent_notifications_pref"
