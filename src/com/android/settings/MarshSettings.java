@@ -71,12 +71,12 @@ public class MarshSettings extends SettingsPreferenceFragment
         mExpand.setOnPreferenceChangeListener(this);
 
         mScale = (ListPreference) findPreference("hook_system_ui_blurred_expanded_panel_scale_pref");
-        long currentScale = Settings.System.getLong(resolver, BLUR_SCALE_PREFERENCE_KEY, 10);
+        long currentScale = Settings.System.getLong(resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, 10);
         mScale.setValue(String.valueOf(currentScale));
         mScale.setOnPreferenceChangeListener(this);
 
         mRadius = (ListPreference) findPreference("hook_system_ui_blurred_expanded_panel_radius_pref");
-        long currentRadius = Settings.System.getLong(resolver, BLUR_RADIUS_PREFERENCE_KEY, 5);
+        long currentRadius = Settings.System.getLong(resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, 5);
         mRadius.setValue(String.valueOf(currentRadius));
         mRadius.setOnPreferenceChangeListener(this);
 
