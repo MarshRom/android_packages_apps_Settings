@@ -127,27 +127,17 @@ public class MarshSettings extends SettingsPreferenceFragment
             getContext().sendBroadcast(i);
             return true;
         } else if (preference == mScale) {
-            try {
-                int value = Integer.parseInt((String) objValue);
-                Settings.System.putInt(
-                    resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, value);
-                getContext().sendBroadcast(i);
-                return true;
-            } catch (NumberFormatException e) {
-                Log.e(TAG, "could not persist screen timeout setting", e);
-                return false;
-            }
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putInt(
+                resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, value);
+            getContext().sendBroadcast(i);
+            return true;
         } else if (preference == mRadius) {
-            try {
-                int value = Integer.parseInt((String) objValue);
-                Settings.System.putInt(
-                    resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, value);
-                getContext().sendBroadcast(i);
-                return true;
-            } catch (NumberFormatException e) {
-                Log.e(TAG, "could not persist screen timeout setting", e);
-                return false;
-            }
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putInt(
+                resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, value);
+            getContext().sendBroadcast(i);
+            return true;
         } else if (preference == mNotiTrans) {
             Settings.System.putInt(
                     resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
