@@ -29,8 +29,8 @@
        android:title="@string/hook_system_ui_blurred_scale"
        android:summary="@string/hook_system_ui_blurred_scale_summary"
        android:persistent="false"
-       android:entries="@array/screen_timeout_entries"
-       android:entryValues="@array/screen_timeout_values" />
+       android:entries="@array/blur_scale_entries"
+       android:entryValues="@array/blur_scale_entries" />
 
     <ListPreference
        android:key="hook_system_ui_blurred_expanded_panel_radius_pref"
