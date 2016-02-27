@@ -1148,4 +1148,7 @@
 
     <!-- CM Legal -->
     <string name="cmlicense_title">CyanogenMod legal</string>
+    
+    <!-- LockScreen Blur -->
+    <string name="lockscreen_blur_radius">Blur effect intensity</string>
 </resources>
