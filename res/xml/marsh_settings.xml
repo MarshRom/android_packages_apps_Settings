@@ -24,21 +24,23 @@
        android:summary="@string/hook_system_ui_blurred_status_bar_expanded_enabled_pref_summary"
        android:defaultValue="true" />
 
-    <ListPreference
-       android:key="hook_system_ui_blurred_expanded_panel_scale_pref"
+    <com.android.settings.cyanogenmod.SeekBarPreference
+       android:key="statusbar_blur_scale"
        android:title="@string/hook_system_ui_blurred_scale"
-       android:summary="@string/hook_system_ui_blurred_scale_summary"
        android:persistent="false"
-       android:entries="@array/blur_scale_entries"
-       android:entryValues="@array/blur_scale_entries" />
+       android:dialogTitle="@string/hook_system_ui_blurred_scale"
+       android:max="25"
+       settings:minSeekBar="1"
+       android:defaultValue="10" />
 
-    <ListPreference
-       android:key="hook_system_ui_blurred_expanded_panel_radius_pref"
+    <com.android.settings.cyanogenmod.SeekBarPreference
+       android:key="statusbar_blur_radius"
        android:title="@string/hook_system_ui_blurred_radius"
-       android:summary="@string/hook_system_ui_blurred_radius_summary"
        android:persistent="false"
-       android:entries="@array/blur_radius_entries"
-       android:entryValues="@array/blur_radius_entries" />
+       android:dialogTitle="@string/hook_system_ui_blurred_radius"
+       android:max="25"
+       settings:minSeekBar="1"
+       android:defaultValue="5" />
 
     <SwitchPreference
        android:key="hook_system_ui_translucent_notifications_pref"

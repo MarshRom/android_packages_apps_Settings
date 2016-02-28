@@ -31,6 +31,7 @@ import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
 import android.view.View;
 
+import com.android.settings.cyanogenmod.SeekBarPreference;
 import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -54,8 +55,8 @@ public class MarshSettings extends SettingsPreferenceFragment
     private TwoStatePreference mHeadSett;
     private TwoStatePreference mQuickSett;
     private TwoStatePreference mEditButton;
-    private ListPreference mScale;
-    private ListPreference mRadius;
+    private SeekBarPreference mScale;
+    private SeekBarPreference mRadius;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -70,14 +71,12 @@ public class MarshSettings extends SettingsPreferenceFragment
         mExpand.setChecked(mExpandint);
         mExpand.setOnPreferenceChangeListener(this);
 
-        mScale = (ListPreference) findPreference("hook_system_ui_blurred_expanded_panel_scale_pref");
-        long currentScale = Settings.System.getLong(resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, 10);
-        mScale.setValue(String.valueOf(currentScale));
+        mScale = (SeekBarPreference) findPreference("statusbar_blur_scale");
+        mScale.setValue(CMSettings.System.getInt(resolver, CMSettings.System.STATUSBAR_BLUR_SCALE, 10));
         mScale.setOnPreferenceChangeListener(this);
 
-        mRadius = (ListPreference) findPreference("hook_system_ui_blurred_expanded_panel_radius_pref");
-        long currentRadius = Settings.System.getLong(resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, 5);
-        mRadius.setValue(String.valueOf(currentRadius));
+        mRadius = (SeekBarPreference) findPreference("statusbar_blur_radius");
+        mRadius.setValue(CMSettings.System.getInt(resolver, CMSettings.System.STATUSBAR_BLUR_RADIUS, 5));
         mRadius.setOnPreferenceChangeListener(this);
 
         mNotiTrans = (TwoStatePreference) findPreference("hook_system_ui_translucent_notifications_pref");
@@ -127,15 +126,14 @@ public class MarshSettings extends SettingsPreferenceFragment
             getContext().sendBroadcast(i);
             return true;
         } else if (preference == mScale) {
-            int value = Integer.parseInt((String) newValue);
-            Settings.System.putInt(
-                resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, value);
+            CMSettings.System.putInt(
+                resolver, CMSettings.System.STATUSBAR_BLUR_SCALE, (Integer) newValue);
             getContext().sendBroadcast(i);
             return true;
         } else if (preference == mRadius) {
             int value = Integer.parseInt((String) newValue);
-            Settings.System.putInt(
-                resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, value);
+            CMSettings.System.putInt(
+                resolver, CMSettings.System.STATUSBAR_BLUR_RADIUS, (Integer) newValue);
             getContext().sendBroadcast(i);
             return true;
         } else if (preference == mNotiTrans) {
