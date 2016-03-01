@@ -1125,6 +1125,7 @@
         <item>1920x1080/320|3840x2160/640</item>
         <item>1920x1080/320|3840x2160/640,secure</item>
         <item>1280x720/213;1920x1080/320</item>
+    </string-array>
 
     <!-- Lockscreen Weather -->
     <string-array name="weather_condition_icon_entries">
