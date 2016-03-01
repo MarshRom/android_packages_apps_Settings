@@ -28,6 +28,7 @@
     <com.android.settings.cyanogenmod.SeekBarPreference
        android:key="statusbar_blur_scale"
        android:title="@string/hook_system_ui_blurred_scale"
+       android:dependency="hook_system_ui_blurred_status_bar_expanded_enabled_pref"
        android:persistent="false"
        android:dialogTitle="@string/hook_system_ui_blurred_scale"
        android:max="25"
@@ -37,6 +38,7 @@
     <com.android.settings.cyanogenmod.SeekBarPreference
        android:key="statusbar_blur_radius"
        android:title="@string/hook_system_ui_blurred_radius"
+       android:dependency="hook_system_ui_blurred_status_bar_expanded_enabled_pref"
        android:persistent="false"
        android:dialogTitle="@string/hook_system_ui_blurred_radius"
        android:max="25"
