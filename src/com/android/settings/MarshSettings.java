@@ -65,6 +65,7 @@ public class MarshSettings extends SettingsPreferenceFragment
     private TwoStatePreference mHeadSett;
     private TwoStatePreference mQuickSett;
     private TwoStatePreference mEditButton;
+    private TwoStatePreference mDT2SLock;
     private SeekBarPreference mScale;
     private SeekBarPreference mRadius;
 
@@ -136,6 +137,12 @@ public class MarshSettings extends SettingsPreferenceFragment
                 Settings.System.STATUSBAR_EDITBUTTON_PREFERENCE_KEY, 1) == 1);
         mEditButton.setChecked(mEditButtonint);
         mEditButton.setOnPreferenceChangeListener(this);
+
+        mDT2SLock = (TwoStatePreference) findPreference("double_tap_sleep_lock_screen");
+        boolean mDT2SLockint = (Settings.System.getInt(resolver,
+                Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 1) == 1);
+        mDT2SLock.setChecked(mDT2SLockint);
+        mDT2SLock.setOnPreferenceChangeListener(this);
 
         boolean showWeather = Settings.System.getInt(mResolver,
                 Settings.System.LOCK_SCREEN_SHOW_WEATHER, 0) == 1;
@@ -249,6 +256,11 @@ public class MarshSettings extends SettingsPreferenceFragment
         } else if (preference == mNotiTrans) {
             Settings.System.putInt(
                     resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
+            getContext().sendBroadcast(i);
+            return true;
+        } else if (preference == mHeadSett) {
+            Settings.System.putInt(
+                    resolver, Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, (((Boolean) newValue) ? 1 : 0));
             getContext().sendBroadcast(i);
             return true;
         } else if (preference == mHeadSett) {
