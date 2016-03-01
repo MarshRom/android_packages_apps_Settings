@@ -96,7 +96,7 @@
 
     <PreferenceCategory
        android:key="weather_cat_colors"
-       android:title="@string/colors_title">
+       android:title="@string/colors_title" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
        android:key="weather_text_color"
