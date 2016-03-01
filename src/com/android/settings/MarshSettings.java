@@ -55,10 +55,16 @@ import cyanogenmod.providers.CMSettings;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
+import com.android.internal.util.du.DuUtils;
+
 public class MarshSettings extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "Marsh";
+
+    private static final String KEYGUARD_TOGGLE_TORCH = "keyguard_toggle_torch";
+
+    private SwitchPreference mKeyguardTorch;
 
     private TwoStatePreference mExpand;
     private TwoStatePreference mNotiTrans;
@@ -99,6 +105,15 @@ public class MarshSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.marsh_settings);
 
         ContentResolver resolver = getActivity().getContentResolver();
+
+        mKeyguardTorch = (SwitchPreference) findPreference(KEYGUARD_TOGGLE_TORCH);
+        mKeyguardTorch.setOnPreferenceChangeListener(this);
+        if (!DuUtils.deviceSupportsFlashLight(getActivity())) {
+            prefSet.removePreference(mKeyguardTorch);
+        } else {
+        mKeyguardTorch.setChecked((Settings.System.getInt(resolver,
+                Settings.System.KEYGUARD_TOGGLE_TORCH, 0) == 1));
+        }
 
         mExpand = (TwoStatePreference) findPreference("hook_system_ui_blurred_status_bar_expanded_enabled_pref");
         boolean mExpandint = (Settings.System.getInt(resolver,
@@ -237,7 +252,12 @@ public class MarshSettings extends SettingsPreferenceFragment
         String hex;
         int intHex;
         Intent i = new Intent("serajr.blurred.system.ui.lp.UPDATE_PREFERENCES");
-        if (preference == mExpand) {
+        if  (preference == mKeyguardTorch) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.KEYGUARD_TOGGLE_TORCH, checked ? 1:0);
+            return true;
+        } else if (preference == mExpand) {
             Settings.System.putInt(
                     resolver, Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
             getContext().sendBroadcast(i);
