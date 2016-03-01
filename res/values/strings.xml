@@ -6060,7 +6060,6 @@
     <!-- Sound & notification > Sound section: Title for the option managing whether or not to vibrate when ringing. [CHAR LIMIT=30] -->
     <string name="vibrate_when_ringing_title">Also vibrate for calls</string>
 
-<<<<<<< HEAD
     <!-- Sound & notification: Notification section header [CHAR LIMIT=30] -->
     <string name="notification_section_header">Notification</string>
 
