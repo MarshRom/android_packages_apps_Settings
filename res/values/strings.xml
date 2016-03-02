@@ -6187,6 +6187,9 @@
     <string name="lock_clock_font_black_italic">Roboto Black Italic</string>
     <string name="lock_clock_font_condensed_light_normal">Roboto Condensed Light</string>
     <string name="lock_clock_font_condensed_light_italic">Roboto Condensed Light Italic</string>
+    <string name="lock_clock_font_stock">Clock Font Stock</string>
+    <string name="default_string">Default</string>
+    <string name="reset">Reset</string>
 
     <!-- Lockscreen Torch -->
     <string name="keyguard_torch_title">Lockscreen torch</string>

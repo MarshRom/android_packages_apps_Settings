@@ -30,6 +30,9 @@ import android.preference.TwoStatePreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.view.Menu;
@@ -58,7 +61,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.internal.util.du.DuUtils;
 
 public class MarshSettings extends SettingsPreferenceFragment
-        implements OnPreferenceChangeListener, Indexable {
+        implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "Marsh";
 
@@ -92,18 +95,22 @@ public class MarshSettings extends SettingsPreferenceFragment
 
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
+    private SwitchPreference mShowTimestamp;
     private SwitchPreference mShowStatusbarWeather;
     private ListPreference mConditionIcon;
     private SwitchPreference mColorizeAllIcons;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
+    
+    private ContentResolver mResolver;
 
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        refreshSettings();
         addPreferencesFromResource(R.xml.marsh_settings);
-
+		PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
         mKeyguardTorch = (SwitchPreference) findPreference(KEYGUARD_TOGGLE_TORCH);
@@ -158,7 +165,13 @@ public class MarshSettings extends SettingsPreferenceFragment
                 Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 1) == 1);
         mDT2SLock.setChecked(mDT2SLockint);
         mDT2SLock.setOnPreferenceChangeListener(this);
-
+	}
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
+        mResolver = getActivity().getContentResolver();
         boolean showWeather = Settings.System.getInt(mResolver,
                 Settings.System.LOCK_SCREEN_SHOW_WEATHER, 0) == 1;
         int conditionIcon = Settings.System.getInt(mResolver,
@@ -268,7 +281,6 @@ public class MarshSettings extends SettingsPreferenceFragment
             getContext().sendBroadcast(i);
             return true;
         } else if (preference == mRadius) {
-            int value = Integer.parseInt((String) newValue);
             CMSettings.System.putInt(
                 resolver, CMSettings.System.STATUSBAR_BLUR_RADIUS, (Integer) newValue);
             getContext().sendBroadcast(i);
@@ -387,8 +399,8 @@ public class MarshSettings extends SettingsPreferenceFragment
             return frag;
         }
 
-        Weather getOwner() {
-            return (Weather) getTargetFragment();
+        MarshSettings getOwner() {
+            return (MarshSettings) getTargetFragment();
         }
 
         @Override
