@@ -106,9 +106,8 @@ public class MarshSettings extends SettingsPreferenceFragment
 
 
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        refreshSettings();
+	public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.marsh_settings);
 		PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
@@ -166,6 +165,7 @@ public class MarshSettings extends SettingsPreferenceFragment
         mDT2SLock.setChecked(mDT2SLockint);
         mDT2SLock.setOnPreferenceChangeListener(this);
 	}
+
     public void refreshSettings() {
         PreferenceScreen prefs = getPreferenceScreen();
         if (prefs != null) {
