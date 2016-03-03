@@ -73,5 +73,11 @@
         android:title="@string/status_bar_quick_qs_pulldown_title"
         android:entries="@array/status_bar_quick_qs_pulldown_entries"
         android:entryValues="@array/status_bar_quick_qs_pulldown_values" />
+	
+    <Preference
+        android:key="traffic"
+        android:fragment="com.android.settings.marshrom.Traffic"
+        android:title="@string/traffic_category" 
+        android:summary="@string/traffic_settings_summary" />
 
 </PreferenceScreen>
