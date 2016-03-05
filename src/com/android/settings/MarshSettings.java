@@ -290,7 +290,7 @@ public class MarshSettings extends SettingsPreferenceFragment
                     resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
             getContext().sendBroadcast(i);
             return true;
-        } else if (preference == mHeadSett) {
+        } else if (preference == mDT2SLock) {
             Settings.System.putInt(
                     resolver, Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, (((Boolean) newValue) ? 1 : 0));
             getContext().sendBroadcast(i);
