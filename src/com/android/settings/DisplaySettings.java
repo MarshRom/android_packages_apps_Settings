@@ -595,7 +595,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     // Ignore
                 }
 
-                try {
+                try {//TODO: 
                     wm.setForcedDisplayDensity(Display.DEFAULT_DISPLAY, density);
                 } catch (RemoteException e) {
                     Log.e(TAG, "Failed to set density to " + density, e);
