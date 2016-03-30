@@ -139,9 +139,4 @@
        android:summary="@string/keyguard_torch_summary"
        android:defaultValue="false" />
 
-    <PreferenceScreen
-       android:key="animation_settings"
-       android:title="@string/animation_title"
-       android:fragment="com.android.settings.marshrom.animation.AnimationSettings" />
-
 </PreferenceScreen>
