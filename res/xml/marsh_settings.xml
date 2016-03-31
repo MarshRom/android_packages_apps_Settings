@@ -115,12 +115,6 @@
        android:defaultValue="0xffffffff"
        android:dependency="weather_colorize_all_icons" />
 
-    <PreferenceScreen
-       android:key="lock_clock_fonts"
-       android:title="@string/lock_clock_font_title"
-       android:layout="@layout/preference_lock_clock_fonts"
-       android:fragment="com.dirtyunicorns.dutweaks.fragments.LockClockFonts" />
-
     <SwitchPreference
        android:key="double_tap_sleep_lock_screen"
        android:title="@string/double_tap_to_sleep_lockscreen_title"
