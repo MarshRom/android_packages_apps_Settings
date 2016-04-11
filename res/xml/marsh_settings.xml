@@ -133,4 +133,9 @@
        android:summary="@string/keyguard_torch_summary"
        android:defaultValue="false" />
 
+  <PreferenceScreen
+           android:key="app_circle_bar"
+           android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"
+           android:title="@string/app_circle_bar_title" />
+
 </PreferenceScreen>
