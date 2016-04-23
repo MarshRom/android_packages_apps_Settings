@@ -172,7 +172,7 @@ public class MarshSettings extends SettingsPreferenceFragment
         Intent i = new Intent("serajr.blurred.system.ui.lp.UPDATE_PREFERENCES");
         if  (preference == mKeyguardTorch) {
             Settings.System.putInt(
-                    resolver, Settings.System.KEYGUARD_TOGGLE_TORCH, (((Boolean) newValue) ? 1 : 0);
+                    resolver, Settings.System.KEYGUARD_TOGGLE_TORCH, (((Boolean) newValue) ? 1 : 0));
             return true;
         } else if (preference == mExpand) {
             Settings.System.putInt(
