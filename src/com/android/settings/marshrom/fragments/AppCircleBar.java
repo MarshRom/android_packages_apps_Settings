@@ -37,7 +37,7 @@ import com.android.settings.Utils;
 //import com.android.settings.util.CMDProcessor;
 //import com.android.settings.marshrom.Helpers;
 import com.android.settings.marshrom.AppMultiSelectListPreference;
-import com.android.settings.marshrom.widget.SeekBarPreferenceCham;
+import com.android.settings.cyanogenmod.SeekBarPreference;
 
 import java.io.File;
 import java.lang.Thread;
@@ -58,9 +58,9 @@ public class AppCircleBar extends SettingsPreferenceFragment implements
 
     private AppMultiSelectListPreference mIncludedAppCircleBar;
 
-    private SeekBarPreferenceCham mTriggerWidthPref;
-    private SeekBarPreferenceCham mTriggerTopPref;
-    private SeekBarPreferenceCham mTriggerBottomPref;
+    private SeekBarPreference mTriggerWidthPref;
+    private SeekBarPreference mTriggerTopPref;
+    private SeekBarPreference mTriggerBottomPref;
 
 
     @Override
@@ -78,18 +78,18 @@ public class AppCircleBar extends SettingsPreferenceFragment implements
         if (includedApps != null) mIncludedAppCircleBar.setValues(includedApps);
         mIncludedAppCircleBar.setOnPreferenceChangeListener(this);
 
-        mTriggerWidthPref = (SeekBarPreferenceCham) findPreference(KEY_TRIGGER_WIDTH);
-        mTriggerWidthPref.setValue(Settings.System.getInt(getContentResolver(),
+        mTriggerWidthPref = (SeekBarPreference) findPreference(KEY_TRIGGER_WIDTH);
+        mTriggerWidthPref.setValue(Settings.System.getInt(resolver,
                 Settings.System.APP_CIRCLE_BAR_TRIGGER_WIDTH, 40));
         mTriggerWidthPref.setOnPreferenceChangeListener(this);
 
-        mTriggerTopPref = (SeekBarPreferenceCham) findPreference(KEY_TRIGGER_TOP);
-        mTriggerTopPref.setValue(Settings.System.getInt(getContentResolver(),
+        mTriggerTopPref = (SeekBarPreference) findPreference(KEY_TRIGGER_TOP);
+        mTriggerTopPref.setValue(Settings.System.getInt(resolver,
                 Settings.System.APP_CIRCLE_BAR_TRIGGER_TOP, 0));
         mTriggerTopPref.setOnPreferenceChangeListener(this);
 
-        mTriggerBottomPref = (SeekBarPreferenceCham) findPreference(KEY_TRIGGER_BOTTOM);
-        mTriggerBottomPref.setValue(Settings.System.getInt(getContentResolver(),
+        mTriggerBottomPref = (SeekBarPreference) findPreference(KEY_TRIGGER_BOTTOM);
+        mTriggerBottomPref.setValue(Settings.System.getInt(resolver,
                 Settings.System.APP_CIRCLE_BAR_TRIGGER_HEIGHT, 100));
         mTriggerBottomPref.setOnPreferenceChangeListener(this);
 
@@ -112,19 +112,16 @@ public class AppCircleBar extends SettingsPreferenceFragment implements
         if (preference == mIncludedAppCircleBar) {
             storeIncludedApps((Set<String>) objValue);
         } else if (preference == mTriggerWidthPref) {
-            int width = ((Integer)objValue).intValue();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.APP_CIRCLE_BAR_TRIGGER_WIDTH, width);
+            Settings.System.putInt(resolver,
+                    Settings.System.APP_CIRCLE_BAR_TRIGGER_WIDTH, (Integer) objValue);
             return true;
         } else if (preference == mTriggerTopPref) {
-            int top = ((Integer)objValue).intValue();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.APP_CIRCLE_BAR_TRIGGER_TOP, top);
+            Settings.System.putInt(resolver,
+                    Settings.System.APP_CIRCLE_BAR_TRIGGER_TOP, (Integer) objValue);
             return true;
         } else if (preference == mTriggerBottomPref) {
-            int bottom = ((Integer)objValue).intValue();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.APP_CIRCLE_BAR_TRIGGER_HEIGHT, bottom);
+            Settings.System.putInt(resolver,
+                    Settings.System.APP_CIRCLE_BAR_TRIGGER_HEIGHT, (Integer) objValue);
             return true;
         }
 
