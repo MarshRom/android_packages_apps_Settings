@@ -207,6 +207,19 @@
     <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
     <string name="wifi_setting_countrycode_error">There was a problem setting the region code.</string>
 
+    <string name="wifi_countrycode_us">United States</string>
+    <string name="wifi_countrycode_ca">Canada, Taiwan</string>
+    <string name="wifi_countrycode_de">Germany</string>
+    <string name="wifi_countrycode_gb">Europe</string>
+    <string name="wifi_countrycode_jp">Japan, Russia</string>
+    <string name="wifi_countrycode_au">Australia</string>
+    <string name="wifi_countrycode_cn">China</string>
+    <string name="wifi_countrycode_kr">Korea</string>
+    <string name="wifi_countrycode_tr">South Africa, Turkey</string>
+    <string name="wifi_countrycode_sg">Israel, Singapore</string>
+    <string name="wifi_countrycode_br">Brazil</string>
+    <string name="wifi_countrycode_in">India</string>
+
     <!-- Profiles -->
     <string name="profile_menu_delete_title">Delete</string>
     <string name="profile_action_none">Leave unchanged</string>
@@ -657,6 +670,10 @@
     <string name="saturation_str">Saturation: <xliff:g id="saturation_value">%1$s</xliff:g></string>
     <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
     <string name="intensity_str">Intensity: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+
+    <string name="screen_color_standard">Standard</string>
+    <string name="screen_color_vivid">Vivid</string>
+    <string name="screen_color_custom">Custom</string>
 
     <!-- LiveDisplay -->
     <string name="live_display_title" translatable="false">LiveDisplay</string>
@@ -1178,6 +1195,15 @@
     <string name="weather_settings_no_services_prompt">No weather provider services installed</string>
     <string name="weather_settings_button">Provider settings</string>
     <string name="weather_settings_activity_not_found">Unable to launch the settings menu of this provider</string>
+    <string name="weather_settings_add_weather_provider">Add weather provider</string>
+    <string name="weather_settings_play_store_market_url" translatable="false">market://search?q=cyanogenmodweatherprovider&amp;c=apps</string>
+    <string name="weather_settings_play_store_http_url" translatable="false">http://play.google.com/store/search?q=cyanogenmodweatherprovider&amp;c=apps</string>
+    <string name="weather_settings_general_settings_title">General</string>
+    <string name="weather_settings_providers_title">Providers</string>
+    <string name="weather_settings_temp_units_title">Temperature unit</string>
+    <string name="weather_settings_temp_celsius">Celsius</string>
+    <string name="weather_settings_temp_fahrenheit">Fahrenheit</string>
+    <string name="weather_settings_keyword">weather</string>
 
     <string name="background_data_access">Background data access</string>
     <string name="allow_background_both">Over cellular data &amp; Wi\u2011Fi</string>
@@ -1198,4 +1224,7 @@
 
     <!-- Label for settings shortcut: carrier selection -->
     <string name="shortcut_carrier_title">Network operators</string>
+
+    <!-- title for lock screen blur preference -->
+    <string name="lockscreen_blur_enabled_title">Lock screen blur</string>
 </resources>

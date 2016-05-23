@@ -127,6 +127,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_GENERAL_CATEGORY = "general_category";
     private static final String KEY_LIVE_LOCK_SCREEN = "live_lock_screen";
     private static final String KEY_BLUR_RADIUS = "lockscreen_blur_radius";
+    private static final String KEY_LOCK_SCREEN_BLUR = CMSettings.Secure.LOCK_SCREEN_BLUR_ENABLED;
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
@@ -359,7 +360,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
             // Add live lock screen preference if supported
             PreferenceGroup generalCategory = (PreferenceGroup)
                     root.findPreference(KEY_GENERAL_CATEGORY);
-            if (pm.hasSystemFeature(LIVE_LOCK_SCREEN_FEATURE) && generalCategory != null) {
+            if (pm.hasSystemFeature(LIVE_LOCK_SCREEN_FEATURE) && generalCategory != null && Utils.isUserOwner()) {
                 boolean moveToTop = getResources().getBoolean(
                         R.bool.config_showLiveLockScreenSettingsFirst);
 
@@ -367,9 +368,16 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 Preference liveLockPreference = new Preference(getContext(), null);
                 liveLockPreference.setIntent(new Intent(ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS));
                 liveLockPreference.setOrder(-1);
-                liveLockPreference.setTitle(R.string.live_lock_screen_title);
-                liveLockPreference.setSummary(R.string.live_lock_screen_summary);
+                setLiveLockScreenPreferenceTitleAndSummary(liveLockPreference);
                 groupToAddTo.addPreference(liveLockPreference);
+            }
+
+            // only show blur setting for devices that support it
+            boolean blurSupported = getResources().getBoolean(
+                    com.android.internal.R.bool.config_ui_blur_enabled);
+            if (!blurSupported) {
+                Preference blurEnabledPref = root.findPreference(KEY_LOCK_SCREEN_BLUR);
+                if (blurEnabledPref != null) root.removePreference(blurEnabledPref);
             }
         }
 
@@ -884,6 +892,46 @@ public class SecuritySettings extends SettingsPreferenceFragment
     @Override
     protected int getHelpResource() {
         return R.string.help_url_security;
+    }
+
+    /**
+     * Loads the title and summary for live lock screen preference.  If an external package supports
+     * the {@link cyanogenmod.content.Intent#ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS} we attempt to
+     * load the title and summary from that package and use defaults if those cannot be loaded or
+     * no other package is found to support the action.
+     * @param pref
+     */
+    private void setLiveLockScreenPreferenceTitleAndSummary(Preference pref) {
+        String title = getString(R.string.live_lock_screen_title);
+        String summary = getString(R.string.live_lock_screen_summary);
+        PackageManager pm = getPackageManager();
+        List<ResolveInfo> infos = pm.queryIntentActivities(
+                new Intent(ACTION_OPEN_LIVE_LOCKSCREEN_SETTINGS), 0);
+        if (infos != null && infos.size() > 1) {
+            for (ResolveInfo info : infos) {
+                if (!getActivity().getPackageName().equals(info.activityInfo.packageName)) {
+                    try {
+                        final Context ctx = getActivity().createPackageContext(
+                                info.activityInfo.packageName, 0);
+                        final Resources res = ctx.getResources();
+                        int titleId = res.getIdentifier("live_lock_screen_title", "string",
+                                info.activityInfo.packageName);
+                        int summaryId = res.getIdentifier("live_lock_screen_summary", "string",
+                                info.activityInfo.packageName);
+                        if (titleId !=0 && summaryId != 0) {
+                            title = res.getString(titleId);
+                            summary = res.getString(summaryId);
+                        }
+                    } catch (PackageManager.NameNotFoundException e) {
+                        /* ignore and use defaults */
+                    }
+                    break;
+                }
+            }
+        }
+
+        pref.setTitle(title);
+        pref.setSummary(summary);
     }
 
     /**

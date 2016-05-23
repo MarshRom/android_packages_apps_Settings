@@ -484,6 +484,9 @@
   <string name="saturation_str">تێریی ڕەنگ: <xliff:g id="saturation_value">%1$s</xliff:g></string>
   <string name="contrast_str">کۆنتراست: <xliff:g id="contrast_value">%1$s</xliff:g></string>
   <string name="intensity_str">توندێتیی ڕەنگ: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
+  <string name="screen_color_standard">پێوانەی</string>
+  <string name="screen_color_vivid">زیرەکی</string>
+  <string name="screen_color_custom">درووستکراو</string>
   <!-- LiveDisplay -->
   <string name="live_display_summary">پاشینەسازی لەسەر شاشەکەت  بەندە بە کاتی ڕۆژ وە مەرجی چاکسازی بۆ خوێندنەوەی و کەمکردنەوەی چاوسوین</string>
   <string name="live_display_mode">پیشاندانی بار</string>
@@ -762,5 +765,6 @@
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging on Dock AC. -->
   <!-- [CHAR_LIMIT=20] Battery use screen. Battery status shown in chart label when charging over Dock USB. -->
   <!-- Weather -->
+  <string name="weather_settings_general_settings_title">گشتی</string>
   <!-- Label for settings shortcut: carrier selection -->
 </resources>
