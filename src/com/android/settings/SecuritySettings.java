@@ -375,9 +375,9 @@ public class SecuritySettings extends SettingsPreferenceFragment
             // only show blur setting for devices that support it
             boolean blurSupported = getResources().getBoolean(
                     com.android.internal.R.bool.config_ui_blur_enabled);
-            if (!blurSupported) {
-                Preference blurEnabledPref = root.findPreference(KEY_LOCK_SCREEN_BLUR);
-                if (blurEnabledPref != null) root.removePreference(blurEnabledPref);
+            if (!blurSupported && generalCategory != null) {
+                Preference blurEnabledPref = generalCategory.findPreference(KEY_LOCK_SCREEN_BLUR);
+                if (blurEnabledPref != null) generalCategory.removePreference(blurEnabledPref);
             }
         }
 
