@@ -1165,11 +1165,6 @@
 
     <!-- CM Legal -->
     <string name="cmlicense_title">CyanogenMod legal</string>
-    
-    <!-- LockScreen Blur and see through -->
-    <string name="lockscreen_see_through_title">Lock screen blur</string>
-    <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lock screen. Your data may be visible to those around you</string>
-    <string name="lockscreen_blur_radius">Blur effect intensity</string>
 
     <!-- Menu label for reset the battery stats -->
     <string name="menu_stats_reset">Reset stats</string>
@@ -1224,7 +1219,4 @@
 
     <!-- Label for settings shortcut: carrier selection -->
     <string name="shortcut_carrier_title">Network operators</string>
-
-    <!-- title for lock screen blur preference -->
-    <string name="lockscreen_blur_enabled_title">Lock screen blur</string>
 </resources>
