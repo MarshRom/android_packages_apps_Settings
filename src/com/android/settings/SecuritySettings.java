@@ -62,7 +62,6 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 import com.android.settings.search.SearchIndexableRaw;
-import com.android.settings.cyanogenmod.SeekBarPreference;
 
 import org.cyanogenmod.internal.util.CmLockPatternUtils;
 
@@ -126,8 +125,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_SMS_SECURITY_CHECK_PREF = "sms_security_check_limit";
     private static final String KEY_GENERAL_CATEGORY = "general_category";
     private static final String KEY_LIVE_LOCK_SCREEN = "live_lock_screen";
-    private static final String KEY_BLUR_RADIUS = "lockscreen_blur_radius";
-    private static final String KEY_LOCK_SCREEN_BLUR = CMSettings.Secure.LOCK_SCREEN_BLUR_ENABLED;
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = { KEY_LOCK_AFTER_TIMEOUT,
@@ -173,8 +170,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private int mFilterType = TYPE_SECURITY_EXTRA;
 
     private Preference mLockscreenDisabledPreference;
-    
-    private SeekBarPreference mBlurRadius;
 
     @Override
     protected int getMetricsCategory() {
@@ -348,13 +343,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
                 mPowerButtonInstantlyLocks.setSummary(getString(
                         R.string.lockpattern_settings_power_button_instantly_locks_summary,
                         trustAgentPreference.getTitle()));
-            }
-            
-            mBlurRadius = (SeekBarPreference) findPreference(KEY_BLUR_RADIUS);
-            if (mBlurRadius != null) {
-                mBlurRadius.setValue(CMSettings.System.getInt(getContentResolver(),
-                        CMSettings.System.LOCKSCREEN_BLUR_RADIUS, 14));
-                mBlurRadius.setOnPreferenceChangeListener(this);
             }
 
             // Add live lock screen preference if supported
@@ -882,9 +870,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             Settings.Global.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
                     smsSecurityCheck);
             updateSmsSecuritySummary(smsSecurityCheck);
-        } else if (KEY_BLUR_RADIUS.equals(key)) {
-            CMSettings.System.putInt(getContentResolver(),
-                    CMSettings.System.LOCKSCREEN_BLUR_RADIUS, (Integer) value);
         }
         return result;
     }
