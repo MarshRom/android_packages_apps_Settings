@@ -1040,4 +1040,12 @@
   <string name="restrict_cellular_access_dialog_summary">Bu özellik sadece hücresel ağ kullanılabilirken ağ erişimine bağlı çalışan bir uygulamanın çalışmayı durdurmasına sebep olabilir.\n\nDaha uygun veri kullanım seçeneklerini uygulama içindeki ayarlardan bulabilirsiniz.</string>
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">Ağ operatörleri</string>
+  <!-- title for lock screen blur preference -->
+  <!-- Per app controls for LP keyguard notifications -->
+  <string name="app_notification_show_on_keyguard_title">Kilit ekranında göster</string>
+  <string name="app_notification_show_on_keyguard_summary">Kilit ekranında bu uygulamanın bildirimlerini göster</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Kilit ekranında kalıcı bildirimleri devre dışı bırak</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Kilit ekranında bu uygulamanın kalıcı bildirimlerini asla gösterme</string>
+  <!-- CmRadioInfo -->
+  <!-- Radio Control (IMS/MBN etc.) -->
 </resources>

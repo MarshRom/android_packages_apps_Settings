@@ -1042,4 +1042,26 @@
   <string name="restrict_cellular_access_dialog_summary">Questa funzione potrebbe impedire ad un\'app di funzionare correttamente quando sei connesso solo con dati mobili.\n\nPotresti trovare controlli per l\'utilizzo dati pià appropriati all\'interno delle impostazioni dell\'app stessa.</string>
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">Operatori di rete</string>
+  <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Blocco schermo sfuocato</string>
+  <!-- Per app controls for LP keyguard notifications -->
+  <string name="app_notification_show_on_keyguard_title">Mostra nella schermata di blocco</string>
+  <string name="app_notification_show_on_keyguard_summary">Mostra notifiche di quest\'app nella schermata di blocco</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Disabilita la notifica persistente nella schermata di blocco</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Non mostrare mai notifiche persistenti da quest\'app nella schermata di blocco</string>
+  <!-- CmRadioInfo -->
+  <string name="cm_radio_info_label">Controlli radio avanzati</string>
+  <!-- Radio Control (IMS/MBN etc.) -->
+  <string name="cm_radio_info_mbn_auto_load_on_label">Disattiva caricamento MBN automatico</string>
+  <string name="cm_radio_info_mbn_auto_load_off_label">Attiva caricamento MBN automatico</string>
+  <string name="cm_radio_info_volte_avail_ovr_on_label">Disattiva dbg VoLTE</string>
+  <string name="cm_radio_info_volte_avail_ovr_off_label">Attiva dbg VoLTE</string>
+  <string name="cm_radio_info_vt_avail_ovr_on_label">Disattiva dbg VT</string>
+  <string name="cm_radio_info_vt_avail_ovr_off_label">Attiva dbg VT</string>
+  <string name="cm_radio_info_wfc_avail_ovr_on_label">Disattiva dbg WFC</string>
+  <string name="cm_radio_info_wfc_avail_ovr_off_label">Attiva dbg WFC</string>
+  <string name="cm_radio_info_adb_log_on_label">Disattiva log radio ADB</string>
+  <string name="cm_radio_info_adb_log_off_label">Attiva log radio ADB</string>
+  <string name="cm_radio_info_diag_log_on_label">Disattiva log Diag</string>
+  <string name="cm_radio_info_diag_log_off_label">Attiva log Diag</string>
 </resources>

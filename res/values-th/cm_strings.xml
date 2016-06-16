@@ -1039,4 +1039,12 @@
   <string name="restrict_cellular_access_dialog_summary">ความสามารถนี้อาจทำใหแอปที่ต้องใช้งานเครือข่ายหยุดทำงานเมื่อมีเพียงเครือข่ายมือถือเท่านั้นที่ใช้งานได้\n\nคุณสามารถตั้งการควบคุมข้อมูลให้เหมาะสมได้จากการตั้งค่าผ่านแอปเหล่านั้น</string>
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">ผู้ให้บริการเครือข่าย</string>
+  <!-- title for lock screen blur preference -->
+  <!-- Per app controls for LP keyguard notifications -->
+  <string name="app_notification_show_on_keyguard_title">แสดงบนหน้าจอล็อค</string>
+  <string name="app_notification_show_on_keyguard_summary">แสดงการแจ้งเตือนจากแอปนี้บนหน้าจอล็อค</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">ปิดใช้งานการแจ้งเตือนแบบถาวรบนหน้าจอล็อค</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">ไม่ต้องแสดงการแจ้งเตือนแบบถาวรจากแอปนี้บนหน้าจอล็อค</string>
+  <!-- CmRadioInfo -->
+  <!-- Radio Control (IMS/MBN etc.) -->
 </resources>

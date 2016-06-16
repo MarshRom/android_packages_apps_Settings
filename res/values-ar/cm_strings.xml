@@ -1046,4 +1046,12 @@
   <string name="restrict_cellular_access_dialog_summary">قد تسبب هذه الميزة توقف تطبيق معين يعتمد على الوصول إلى شبكة الاتصال لإيقاف العمل في حالة توفر شبكات خلوية.\n\nيمكنك العثور على ضوابط أكثر ملاءمة لاستخدام البيانات في الإعدادات المتوفرة داخل التطبيق.</string>
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">مشغلات الشبكات</string>
+  <!-- title for lock screen blur preference -->
+  <!-- Per app controls for LP keyguard notifications -->
+  <string name="app_notification_show_on_keyguard_title">إظهار على شاشة التأمين</string>
+  <string name="app_notification_show_on_keyguard_summary">إظهار إشعارات من هذا التطبيق على شاشة التأمين</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">منع الإشعارات الثابتة على شاشة التأمين</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">عدم إظهار إشعارات ثابتة من هذا التطبيق على شاشة التأمين</string>
+  <!-- CmRadioInfo -->
+  <!-- Radio Control (IMS/MBN etc.) -->
 </resources>

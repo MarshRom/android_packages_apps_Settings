@@ -1040,4 +1040,13 @@
   <string name="restrict_cellular_access_dialog_summary">Denne funksjonen kan forårsake at en app som avhenger av nettverkstilgang slutter å virke når bare mobilnettverk er tilgjengelig.\n\nDu finner mer hensiktsmessig databruk kontrolleringsinnstillinger tilgjengelig i appens innstillinger.</string>
   <!-- Label for settings shortcut: carrier selection -->
   <string name="shortcut_carrier_title">Nettverksoperatører</string>
+  <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Låseskjerm utydelighet</string>
+  <!-- Per app controls for LP keyguard notifications -->
+  <string name="app_notification_show_on_keyguard_title">Vis på låseskjerm</string>
+  <string name="app_notification_show_on_keyguard_summary">Vis varslinger fra denne appen på låseskjermen</string>
+  <string name="app_notification_no_ongoing_on_keyguard_title">Deaktivere vedvarende varsler på låseskjermen</string>
+  <string name="app_notification_no_ongoing_on_keyguard_summary">Vis aldri vedvarende meldinger fra denne appen på låseskjermen</string>
+  <!-- CmRadioInfo -->
+  <!-- Radio Control (IMS/MBN etc.) -->
 </resources>
