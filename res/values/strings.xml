@@ -7164,4 +7164,12 @@
     <string name="default_string">Default</string>
     <string name="reset">Reset</string>
 
+    <!-- Shake to clean recents -->
+    <string name="shake_to_clean_recents_title">Shake To Clean Recents</string>
+    <string name="shake_to_clean_recents_summary">Clean recents by shaking your phone</string>
+
+    <!-- Shake to clean notifications -->
+    <string name="shake_to_clean_notifcations_title">Shake To Clean Notifications</string>
+    <string name="shake_to_clean_notifcations_summary">Clean notifications by shaking your phone</string>
+
 </resources>

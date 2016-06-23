@@ -87,6 +87,18 @@
        android:summary="@string/keyguard_torch_summary"
        android:defaultValue="false" />
 
+    <SwitchPreference
+       android:key="shake_to_clean_recent"
+       android:title="@string/shake_to_clean_recents_title"
+       android:summary="@string/shake_to_clean_recents_summary"
+       android:defaultValue="false" />
+
+    <SwitchPreference
+       android:key="shake_to_clean_notification"
+       android:title="@string/shake_to_clean_notifications_title"
+       android:summary="@string/shake_to_clean_notifications_summary"
+       android:defaultValue="false" />
+
   <PreferenceScreen
            android:key="app_circle_bar"
            android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"
