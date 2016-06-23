@@ -77,7 +77,8 @@ public class MarshSettings extends SettingsPreferenceFragment
     private TwoStatePreference mDT2SLock;
     private SeekBarPreference mScale;
     private SeekBarPreference mRadius;
-
+    private TwoStatePreference mSwipeNotifications;
+    private TwoStatePreference mSwipeRecent;
     private ContentResolver mResolver;
 
 
@@ -140,6 +141,18 @@ public class MarshSettings extends SettingsPreferenceFragment
                 Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 1) == 1);
         mDT2SLock.setChecked(mDT2SLockint);
         mDT2SLock.setOnPreferenceChangeListener(this);
+
+	mSwipeNotifications = (TwoStatePreference) findPreference("shake_to_clean_notification");
+	boolean mSwipeNotificationsint = (Settings.System.getInt(resolver,
+		Settings.System.SHAKE_TO_CLEAN_NOTIFICATION; 1) == 1);
+	mSwipeNotifications.setChecked(mSwipeNotificationsint);
+	mSwipeNotifications.setOnPreferenceChangeListener(this);
+
+	mSwipeRecent = (TwoStatePreference) findPreference("shake_to_clean_recent");
+	boolean mSwipeRecent = (Settings.System.getInt(resolver,
+		Settings.System.SHAKE_TO_CLEAN_RECENT; 1) == 1);
+	mSwipeRecent.setChecked(mSwipeRecentint);
+	mSwipeRecent.setOnPreferenceChangeListener(this);
 	}
 
     public void refreshSettings() {
@@ -214,7 +227,16 @@ public class MarshSettings extends SettingsPreferenceFragment
                     resolver, Settings.System.STATUSBAR_EDITBUTTON_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
             getContext().sendBroadcast(i);
             return true;
-        }
+        } else if (preference == mSwipeNotifications) {
+	    Settings.System.PutInt(
+		    resolver, Settings.System.SHAKE_TO_CLEAN_NOTIFICATION, (((Boolean) newValue) ? 1 : 0));
+	    getContext().sendBroadcast(i);
+	    return true;
+	} else if (preference == mSwipeRecent) {
+	    Settings.System.PutInt(
+		    resolver, Settings.System.SHAKE_TO_CLEAN_RECENT, ((Boolean) newValue) ? 1 : 0));
+	    getContext().sendBroadcast(i);
+	    return true;
         return false;
     }
 
