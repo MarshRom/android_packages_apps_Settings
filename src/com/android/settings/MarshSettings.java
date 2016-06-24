@@ -228,12 +228,12 @@ public class MarshSettings extends SettingsPreferenceFragment
             getContext().sendBroadcast(i);
             return true;
         } else if (preference == mSwipeNotifications) {
-	    Settings.System.PutInt(
+            Settings.System.putInt(
 		    resolver, Settings.System.SHAKE_TO_CLEAN_NOTIFICATION, (((Boolean) newValue) ? 1 : 0));
 	    getContext().sendBroadcast(i);
 	    return true;
 	} else if (preference == mSwipeRecent) {
-	    Settings.System.PutInt(
+	    Settings.System.putInt(
 		    resolver, Settings.System.SHAKE_TO_CLEAN_RECENT, (((Boolean) newValue) ? 1 : 0));
 	    getContext().sendBroadcast(i);
 	    return true;
