@@ -149,7 +149,7 @@ public class MarshSettings extends SettingsPreferenceFragment
 	mSwipeNotifications.setOnPreferenceChangeListener(this);
 
 	mSwipeRecent = (TwoStatePreference) findPreference("shake_to_clean_recent");
-	boolean mSwipeRecent = (Settings.System.getInt(resolver,
+	boolean mSwipeRecentint = (Settings.System.getInt(resolver,
 		Settings.System.SHAKE_TO_CLEAN_RECENT, 1) == 1);
 	mSwipeRecent.setChecked(mSwipeRecentint);
 	mSwipeRecent.setOnPreferenceChangeListener(this);
