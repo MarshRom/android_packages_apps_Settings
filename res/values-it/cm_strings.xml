@@ -618,6 +618,8 @@
   <string name="live_display_color_profile_photography_summary">Colori perfetti per riproduzione foto</string>
   <string name="live_display_color_profile_basic_title">Base</string>
   <string name="live_display_color_profile_basic_summary">Usa il display non calibrato</string>
+  <string name="live_display_color_profile_adaptive_title">Adattivo</string>
+  <string name="live_display_color_profile_adaptive_summary">I colori si adattano alle condizioni ambientali</string>
   <!-- Whether to display IME switcher notifcation -->
   <string name="ime_switcher_notify">Icona selettore</string>
   <string name="ime_switcher_notify_summary">Mostra l\'icona del selettore metodo di immissione</string>
@@ -1068,4 +1070,12 @@
   <string name="cm_radio_info_diag_log_off_label">Attiva log Diag</string>
   <!-- Lock screen wallpaper -->
   <string name="lockscreen_wallpaper_title">Sfondo</string>
+  <string name="not_available_with_app">Non disponibile con %1$s</string>
+  <!-- Format string for fingerprint location message -->
+  <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Individua il sensore d\'impronte nella parte <xliff:g id="sensor_location">%1$s</xliff:g> del tuo telefono.</string>
+  <!-- Fingerprint sensor locations -->
+  <string name="security_settings_fingerprint_sensor_location_back">posteriore</string>
+  <string name="security_settings_fingerprint_sensor_location_front">anteriore</string>
+  <string name="security_settings_fingerprint_sensor_location_left">sinistra</string>
+  <string name="security_settings_fingerprint_sensor_location_right">destra</string>
 </resources>
