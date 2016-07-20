@@ -22,13 +22,13 @@
     <string name="hook_system_ui_blurred_status_bar_expanded_enabled_pref">Blur Status Bar Background</string>
     <string name="hook_system_ui_blurred_status_bar_expanded_enabled_pref_summary">Blur the background when you pull down the status bar</string>
 
-    <string name="hook_system_ui_translucent_notifications_pref">Notifications Translucenet</string>
+    <string name="hook_system_ui_translucent_notifications_pref">Notifications Translucent</string>
     <string name="hook_system_ui_translucent_notifications_pref_summary">Set the background of notifications translucenet</string>
 
-    <string name="hook_system_ui_translucent_header_pref">Status Bar Date Bar Translucenet</string>
+    <string name="hook_system_ui_translucent_header_pref">Status Bar Date Bar Translucent</string>
     <string name="hook_system_ui_translucent_header_pref_summary">Set the background of status bar date bar translucenet</string>
 
-    <string name="hook_system_ui_translucent_quick_settings_pref">Status Bar Expand Translucenet</string>
+    <string name="hook_system_ui_translucent_quick_settings_pref">Status Bar Expand Translucent</string>
     <string name="hook_system_ui_translucent_quick_settings_pref_summary">Set the background of status bar expand translucenet</string>
 
     <string name="hook_statusbar_editbutton_pref">Hide Edit titles button</string>
