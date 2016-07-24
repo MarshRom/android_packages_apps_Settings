@@ -31,8 +31,8 @@
     <string name="hook_system_ui_translucent_quick_settings_pref">Status Bar Expand Translucent</string>
     <string name="hook_system_ui_translucent_quick_settings_pref_summary">Set the background of status bar expand translucenet</string>
 
-    <string name="hook_statusbar_editbutton_pref">Hide Edit titles button</string>
-    <string name="hook_statusbar_editbutton_pref_summary">Hide Edit titles button in expanded status bar (reboot required)</string>
+    <string name="hook_statusbar_editbutton_pref">Hide Edit tiles button</string>
+    <string name="hook_statusbar_editbutton_pref_summary">Hide Edit tiles button in expanded status bar (reboot required)</string>
 
     <string name="hook_system_ui_blurred_scale">Blur Scale</string>
     <string name="hook_system_ui_blurred_scale_summary">Quailty of blur image</string>
