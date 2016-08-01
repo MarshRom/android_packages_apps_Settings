@@ -262,7 +262,6 @@ public class MarshSettings extends SettingsPreferenceFragment
                     return result;
                 }
             };
-<<<<<<< HEAD
 
     class StatusBarAdapter extends FragmentPagerAdapter {
         String titles[] = getTitles();
@@ -287,6 +286,4 @@ public class MarshSettings extends SettingsPreferenceFragment
         
         return titleString;
     }
-=======
->>>>>>> parent of 751688c... quick unlock [2/2] yolo
 }
