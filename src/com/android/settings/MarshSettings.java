@@ -262,4 +262,29 @@ public class MarshSettings extends SettingsPreferenceFragment
                     return result;
                 }
             };
+
+    class StatusBarAdapter extends FragmentPagerAdapter {
+        String titles[] = getTitles();
+        private Fragment frags[] = new Fragment[titles.length];
+
+        public StatusBarAdapter(FragmentManager fm) {
+            super(fm);
+            frags[0] = new GeneralUI();
+            frags[1] = new LockScreen();
+            frags[2] = new StatusBar();
+            frags[3] = new Navigation();
+	}
+
+
+    private String[] getTitles() {
+        String titleString[];
+        
+        titleString = new String[]{
+                    getString(R.string.generalui_category),
+                    getString(R.string.lockscreen_category),
+                    getString(R.string.statusbar_category),
+                    getString(R.string.navigation_category)};
+        
+        return titleString;
+    }
 }
