@@ -116,4 +116,8 @@
            android:title="@string/marsh_info"
            android:summary="@string/marsh_details" />
 
+ <Preference android:key="marsh_site"
+           style="?android:preferenceInformationStyle"
+           android:title="@string/marsh_site"
+           android:summary="@string/marsh_link" />
 </PreferenceScreen>
