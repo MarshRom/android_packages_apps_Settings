@@ -99,12 +99,6 @@
        android:summary="@string/shake_to_clean_notifications_summary"
        android:defaultValue="false" />
 
-    <SwitchPreference
-       android:key="lockscreen_quick_unlock_control"
-       android:title="@string/unlock_quick_unlock_control_title"
-       android:summary="@string/unlock_quick_unlock_control_summary"
-       android:defaultValue="false" />
-
  <SwitchPreference
         android:key="show_su_indicator"
         android:title="@string/su_indicator"
