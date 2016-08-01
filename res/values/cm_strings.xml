@@ -1276,4 +1276,8 @@
     <string name="marsh_site">MarshRom Site</string>
     <string name="marsh_link">marshrom.github.io</string>
 
+    <!-- Marsh Note -->
+    <string name="marsh_note">Marsh Note</string>
+    <string name="marsh_note_text">Superuser Indicator is still in work so it might not work everwhere</string>
+
 </resources>
