@@ -275,6 +275,7 @@ public class MarshSettings extends SettingsPreferenceFragment
             frags[3] = new Navigation();
 	}
 
+
     private String[] getTitles() {
         String titleString[];
         
