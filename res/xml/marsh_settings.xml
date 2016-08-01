@@ -120,4 +120,11 @@
            style="?android:preferenceInformationStyle"
            android:title="@string/marsh_site"
            android:summary="@string/marsh_link" />
+
+ <Preference android:key="marsh_test_header"
+           style="?android:preferenceInformationStyle"
+           android:title="@string/marsh_test_header"
+           android:summary1="@string/marsh_test_line_one"
+	   android:summary2="@string/marsh_test_line_two" 
+	   android:summary3="@string/marsh_test_last_line"  />
 </PreferenceScreen>
