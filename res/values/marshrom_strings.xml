@@ -114,4 +114,8 @@
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
 
+    <!-- Flashlight notification toggle -->
+    <string name="flashlight_notification_title">Flashlight notification</string>
+    <string name="flashlight_notification_summary">Enable notificiation for when the flashlight is on</string>
+
 </resources>
