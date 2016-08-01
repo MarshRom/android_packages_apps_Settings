@@ -1276,10 +1276,4 @@
     <string name="marsh_site">MarshRom Site</string>
     <string name="marsh_link">marshrom.github.io</string>
 
-    <!-- Test -->
-    <string name="marsh_test_header">This is test!</string>
-    <string name="marsh_test_line_one">This is line one!</string>
-    <string name="marsh_test_line_two">This is the second line!</string>
-    <string name="marsh_test_last_line">This should be the last line...</string>
-
 </resources>
