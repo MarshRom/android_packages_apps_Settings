@@ -111,4 +111,9 @@
            android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"
            android:title="@string/app_circle_bar_title" />
 
+  <Preference android:key="marsh_info"
+           style="?android:preferenceInformationStyle"
+           android:title="@string/marsh_info"
+           android:summary="@string/marsh_details" />
+
 </PreferenceScreen>
