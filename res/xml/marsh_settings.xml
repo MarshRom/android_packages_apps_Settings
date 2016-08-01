@@ -104,7 +104,7 @@
         android:title="@string/su_indicator"
         android:summaryOn="@string/su_indicator_summary_on"
         android:summaryOff="@string/su_indicator_summary_off"
-	android:defaultValue="true" />
+	android:defaultValue="false" />
 
   <PreferenceScreen
            android:key="app_circle_bar"
