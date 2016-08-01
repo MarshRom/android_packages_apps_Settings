@@ -99,6 +99,7 @@
        android:summary="@string/shake_to_clean_notifications_summary"
        android:defaultValue="false" />
 
+<<<<<<< HEAD
     <SwitchPreference
        android:key="lockscreen_quick_unlock_control"
        android:title="@string/unlock_quick_unlock_control_title"
@@ -112,6 +113,8 @@
         android:summaryOff="@string/su_indicator_summary_off"
 	android:defaultValue="true" />
 
+=======
+>>>>>>> parent of 751688c... quick unlock [2/2] yolo
   <PreferenceScreen
            android:key="app_circle_bar"
            android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"

@@ -7172,6 +7172,7 @@
     <string name="shake_to_clean_notifications_title">Shake To Clean Notifications</string>
     <string name="shake_to_clean_notifications_summary">Clean notifications by shaking your phone</string>
 
+<<<<<<< HEAD
     <!-- Quick unlock -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
     <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
@@ -7181,4 +7182,6 @@
     <string name="su_indicator_summary_on">Superuser indicator is visible when a session is active</string>
     <string name="su_indicator_summary_off">Toggle to show superuser indicator when a session is active</string>
 
+=======
+>>>>>>> parent of 751688c... quick unlock [2/2] yolo
 </resources>
