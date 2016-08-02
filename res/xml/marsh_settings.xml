@@ -111,6 +111,13 @@
            android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"
            android:title="@string/app_circle_bar_title" />
 
+ <SwitchPreference
+           android:key="screenshot_sound"
+           android:title="@string/screenshot_sound_title"
+           android:summary="@string/screenshot_sound_summary"
+           android:defaultValue="true" />
+
+  <!-- Marsh Info -->
   <Preference android:key="marsh_info"
            style="?android:preferenceInformationStyle"
            android:title="@string/marsh_info"
