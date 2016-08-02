@@ -116,6 +116,6 @@
 
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">Screenshot Sound</string>
-    <string name="screenshot_sound_summary">Sound effect you hear when you take screenshot</string>
+    <string name="screenshot_sound_summary">Sound effect you hear when you take screenshot(reboot required when disabling)</string>
 
 </resources>
