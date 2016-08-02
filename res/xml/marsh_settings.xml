@@ -99,36 +99,30 @@
        android:summary="@string/shake_to_clean_notifications_summary"
        android:defaultValue="false" />
 
-    <SwitchPreference
+ <SwitchPreference
         android:key="show_su_indicator"
         android:title="@string/su_indicator"
         android:summaryOn="@string/su_indicator_summary_on"
         android:summaryOff="@string/su_indicator_summary_off"
 	android:defaultValue="true" />
 
-    <PreferenceScreen
-       android:key="app_circle_bar"
-       android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"
-       android:title="@string/app_circle_bar_title" />
+  <PreferenceScreen
+           android:key="app_circle_bar"
+           android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"
+           android:title="@string/app_circle_bar_title" />
 
-    <Preference android:key="marsh_info"
-       style="?android:preferenceInformationStyle"
-       android:title="@string/marsh_info"
-       android:summary="@string/marsh_details" />
+  <Preference android:key="marsh_info"
+           style="?android:preferenceInformationStyle"
+           android:title="@string/marsh_info"
+           android:summary="@string/marsh_details" />
 
-    <Preference android:key="marsh_site"
-       style="?android:preferenceInformationStyle"
-       android:title="@string/marsh_site"
-       android:summary="@string/marsh_link" />
+ <Preference android:key="marsh_site"
+           style="?android:preferenceInformationStyle"
+           android:title="@string/marsh_site"
+           android:summary="@string/marsh_link" />
 
-    <Preference android:key="marsh_note"
-       style="?android:preferenceInformationStyle"
-       android:title="@string/marsh_note"
-       android:summary="@string/marsh_note_text" />
-
-    <SwitchPreference
-       android:key="flashlight_notification"
-       android:title="@string/flashlight_notification_title"
-       android:summary="@string/flashlight_notification_summary"
-       android:defaultValue="false" />
+<Preference android:key="marsh_note"
+           style="?android:preferenceInformationStyle"
+           android:title="@string/marsh_note"
+           android:summary="@string/marsh_note_text" />
 </PreferenceScreen>

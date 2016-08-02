@@ -30,7 +30,6 @@ import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -51,7 +50,7 @@ import com.android.settings.notification.NotificationBackend.AppRow;
 import java.util.List;
 
 /** These settings are per app, so should not be returned in global search results. */
-public class AppNotificationSettings extends SettingsPreferenceFragment implements Indexable, Preference.OnPreferenceChangeListener {
+public class AppNotificationSettings extends SettingsPreferenceFragment {
     private static final String TAG = "AppNotificationSettings";
     private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
 
@@ -62,7 +61,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment implemen
     private static final String KEY_APP_SETTINGS = "app_settings";
     private static final String KEY_SHOW_ON_KEYGUARD = "show_on_keyguard";
     private static final String KEY_NO_ONGOING_ON_KEYGUARD = "no_ongoing_on_keyguard";
-    private static final String FLASHLIGHT_NOTIFICATION = "flashlight_notification";
 
     private static final Intent APP_NOTIFICATION_PREFS_CATEGORY_INTENT
             = new Intent(Intent.ACTION_MAIN)
@@ -77,7 +75,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment implemen
     private SwitchPreference mSensitive;
     private SwitchPreference mShowOnKeyguard;
     private SwitchPreference mShowNoOngoingOnKeyguard;
-    private SwitchPreference mFlashlightNotification;
     private AppRow mAppRow;
     private boolean mCreated;
     private boolean mIsSystemPackage;
@@ -140,8 +137,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment implemen
         mIsSystemPackage = Utils.isSystemPackage(pm, info);
 
         addPreferencesFromResource(R.xml.app_notification_settings);
-	PreferenceScreen prefSet = getPreferenceScreen();
-	ContentResolver resolver = getActivity().getContentResolver();
         mBlock = (SwitchPreference) findPreference(KEY_BLOCK);
         mPriority = (SwitchPreference) findPreference(KEY_PRIORITY);
         mPeekable = (SwitchPreference) findPreference(KEY_PEEKABLE);
@@ -213,14 +208,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment implemen
         } else {
             removePreference(KEY_APP_SETTINGS);
         }
-
-	mFlashlightNotification = (TwoStatePreference) findPreference("flashlight_notification");
-	boolean mFlashlightNotificationint = (Settings.System.getInt(resolver,
-		Settings.System.FLASHLIGHT_NOTIFICATION, 0) == 1);
-	mFlashlightNotification.setChecked(mFlashlightNotificationint);
-	mFlashlightNotification.setOnPreferenceChangeListener(this);
-	//probably wrong but let's see
-
 
         int keyguard = mBackend.getShowNotificationForPackageOnKeyguard(pkg, mUid);
         mShowOnKeyguard.setChecked((keyguard & Notification.SHOW_ALL_NOTI_ON_KEYGUARD) != 0);
