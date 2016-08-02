@@ -51,7 +51,7 @@ import com.android.settings.notification.NotificationBackend.AppRow;
 import java.util.List;
 
 /** These settings are per app, so should not be returned in global search results. */
-    public class AppNotificationSettings extends SettingsPreferenceFragment {
+public class AppNotificationSettings extends SettingsPreferenceFragment implements Indexable, Preference.OnPreferenceChangeListener {
     private static final String TAG = "AppNotificationSettings";
     private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
 
@@ -141,6 +141,7 @@ import java.util.List;
 
         addPreferencesFromResource(R.xml.app_notification_settings);
 	PreferenceScreen prefSet = getPreferenceScreen();
+	ContentResolver resolver = getActivity().getContentResolver();
         mBlock = (SwitchPreference) findPreference(KEY_BLOCK);
         mPriority = (SwitchPreference) findPreference(KEY_PRIORITY);
         mPeekable = (SwitchPreference) findPreference(KEY_PEEKABLE);
@@ -213,7 +214,7 @@ import java.util.List;
             removePreference(KEY_APP_SETTINGS);
         }
 
-	mFlashlightNotification = (SwitchPreference) findPreference("flashlight_notification");
+	mFlashlightNotification = (TwoStatePreference) findPreference("flashlight_notification");
 	boolean mFlashlightNotificationint = (Settings.System.getInt(resolver,
 		Settings.System.FLASHLIGHT_NOTIFICATION, 0) == 1);
 	mFlashlightNotification.setChecked(mFlashlightNotificationint);
