@@ -7106,6 +7106,7 @@
     <string name="set">Set</string>
     <string name="color_default">Default</string>
 
+    <!-- DT2S on Ls -->
     <string name="double_tap_to_sleep_lockscreen_title">DT2S on Lockscreen</string>
     <string name="double_tap_to_sleep_lockscreen_summary">Double tap on the top third or bottom shortcut area of the lock screen to put the device to sleep</string>
 
@@ -7168,6 +7169,7 @@
     <string name="su_indicator_summary_off">Superuser indicator is currently disabled</string>
 
     <!-- Lock screen wallpaper -->
+    <string name="lockscreen_category">Lockscreen</string>
     <string name="lockscreen_category_title">Lockscreen</string>
     <string name="lockscreen_wallpaper_title">Lockscreen Wallpaper</string>
     <string name="lockscreen_wallpaper_set_title">Set new wallpaper</string>
