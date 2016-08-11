@@ -7163,11 +7163,6 @@
     <string name="shake_to_clean_notifications_title">Shake To Clean Notifications</string>
     <string name="shake_to_clean_notifications_summary">Clean notifications by shaking your phone</string>
 
-    <!-- Superuser indicator on status bar -->
-    <string name="su_indicator">Superuser Indicator Visibility</string>
-    <string name="su_indicator_summary_on">Superuser indicator is now visible</string>
-    <string name="su_indicator_summary_off">Superuser indicator is currently disabled</string>
-
     <!-- Lock screen wallpaper -->
     <string name="lockscreen_category">Lockscreen</string>
     <string name="lockscreen_category_title">Lockscreen</string>
@@ -7176,9 +7171,6 @@
     <string name="lockscreen_wallpaper_clear_title">Return to default</string>
     <string name="reset_lockscreen_wallpaper">Lockscreen wallpaper set back to default</string>
     
-    <!-- Lockscreen Shortcuts -->
-    <string name="lockscreen_targets_title">Bottom L/R shortcuts</string>
-
     <!-- Slim lockscreen shortcuts -->
     <string name="shortcut_action_none">None</string>
     <string name="shortcut_action_longpress">Longpress:</string>
