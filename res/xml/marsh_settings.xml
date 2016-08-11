@@ -110,22 +110,6 @@
            android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"
            android:title="@string/app_circle_bar_title" />
 
-  <!-- Marsh Info -->
-    <Preference android:key="marsh_info"
-           style="?android:preferenceInformationStyle"
-           android:title="@string/marsh_info"
-           android:summary="@string/marsh_details" />
-
-    <Preference android:key="marsh_site"
-           style="?android:preferenceInformationStyle"
-           android:title="@string/marsh_site"
-           android:summary="@string/marsh_link" />
-
-    <Preference android:key="marsh_note"
-           style="?android:preferenceInformationStyle"
-           android:title="@string/marsh_note"
-           android:summary="@string/marsh_note_text" />
-
          <PreferenceScreen
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.dirtyunicorns.dutweaks.dslv.ActionListViewSettings"
@@ -137,4 +121,10 @@
              <extra android:name="useAppPickerOnly" android:value="true" />
              <extra android:name="fragment" android:value="com.dirtyunicorns.dutweaks.fragments.AppShortcuts" />
          </PreferenceScreen>
+         
+           <!-- Marsh Info -->
+    <Preference android:key="marsh_info"
+           style="?android:preferenceInformationStyle"
+           android:title="@string/marsh_info"
+           android:summary="@string/marsh_details" />
 </PreferenceScreen>
