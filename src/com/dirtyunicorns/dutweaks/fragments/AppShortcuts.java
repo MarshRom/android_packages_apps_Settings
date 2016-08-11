@@ -43,7 +43,7 @@ public class AppShortcuts extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.appshortcuts);
+        addPreferencesFromResource(R.xml.marsh_settings);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
