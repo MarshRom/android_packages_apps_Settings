@@ -7164,7 +7164,7 @@
     <string name="shake_to_clean_notifications_summary">Clean notifications by shaking your phone</string>
 
     <!-- Superuser indicator on status bar -->
-    <string name="su_indicator">WIP Superuser Indicator Visibility WIP</string>
+    <string name="su_indicator">Superuser Indicator Visibility</string>
     <string name="su_indicator_summary_on">Superuser indicator is now visible</string>
     <string name="su_indicator_summary_off">Superuser indicator is currently disabled</string>
 
