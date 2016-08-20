@@ -1216,7 +1216,7 @@
     <string name="shortcut_carrier_title">Network operators</string>
 
     <!-- title for lock screen blur preference -->
-    <string name="lockscreen_blur_enabled_title">Blur background</string>
+    <string name="lockscreen_blur_enabled_title">See-Through Blur Background</string>
     <!-- title for lock screen weather preference -->
     <string name="lockscreen_weather_enabled_title">Show weather</string>
 
