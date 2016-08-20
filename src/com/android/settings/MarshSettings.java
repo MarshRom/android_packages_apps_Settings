@@ -132,7 +132,7 @@ public class MarshSettings extends SettingsPreferenceFragment
 
         mEditButton = (TwoStatePreference) findPreference("hook_statusbar_editbutton_pref");
         boolean mEditButtonint = (Settings.System.getInt(resolver,
-                Settings.System.STATUSBAR_EDITBUTTON_PREFERENCE_KEY, 1) == 1);
+                Settings.System.STATUSBAR_EDITBUTTON_PREFERENCE_KEY, 0) == 1);
         mEditButton.setChecked(mEditButtonint);
         mEditButton.setOnPreferenceChangeListener(this);
 
