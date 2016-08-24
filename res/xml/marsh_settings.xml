@@ -105,6 +105,13 @@
        android:summary="@string/screenshot_sound_summary"
        android:defaultValue="true" />
        
+    <SwitchPreference
+       android:key="show_su_indicator"
+       android:title="@string/su_indicator"
+       android:summaryOn="@string/su_indicator_summary_on"
+       android:summaryOff="@string/su_indicator_summary_off"
+       android:defaultValue="true" />
+       
   <PreferenceScreen
            android:key="app_circle_bar"
            android:fragment="com.android.settings.marshrom.fragments.AppCircleBar"
