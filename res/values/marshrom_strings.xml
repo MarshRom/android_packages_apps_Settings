@@ -117,5 +117,9 @@
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">Screenshot Sound</string>
     <string name="screenshot_sound_summary">Sound effect you hear when you take screenshot(reboot required when disabling)</string>
-
+    
+    <!-- Switchy Switch -->
+    <string name="switchy_switch_title">A mysterious switch</string>
+    <string name="switchy_switch_summary_on">Do not touch me</string>
+    <string name="switchy_switch_summary_off">How did you manage to fu3k it up</string>
 </resources>
