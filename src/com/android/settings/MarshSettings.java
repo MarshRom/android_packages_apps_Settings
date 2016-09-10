@@ -71,6 +71,7 @@ public class MarshSettings extends SettingsPreferenceFragment
 
     private TwoStatePreference mExpand;
     private TwoStatePreference mNotiTrans;
+    private TwoStatePreference mRecTrans;
     private TwoStatePreference mHeadSett;
     private TwoStatePreference mQuickSett;
     private TwoStatePreference mEditButton;
@@ -117,6 +118,12 @@ public class MarshSettings extends SettingsPreferenceFragment
                 Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, 1) == 1);
         mNotiTrans.setChecked(mNotiTransint);
         mNotiTrans.setOnPreferenceChangeListener(this);
+        
+        mRecTrans = (TwoStatePreference) findPreference("hook_system_ui_blurred_recent_app_enabled_pref");
+        boolean mRecTransint = (Settings.System.getInt(resolver,
+                Settings.System.RECENT_APPS_ENABLED_PREFERENCE_KEY, 1) == 1);
+        mRecTrans.setChecked(mRecTransint);
+        mRecTrans.setOnPreferenceChangeListener(this);
 
         mHeadSett = (TwoStatePreference) findPreference("hook_system_ui_translucent_header_pref");
         boolean mHeadSettint = (Settings.System.getInt(resolver,
@@ -205,6 +212,12 @@ public class MarshSettings extends SettingsPreferenceFragment
         } else if (preference == mNotiTrans) {
             Settings.System.putInt(
                     resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
+            getContext().sendBroadcast(i);
+            return true;
+            
+        } else if (preference == mRecTrans) {
+            Settings.System.putInt(
+                    resolver, Settings.System.RECENT_APPS_ENABLED_PREFERENCE_KEY, (((Boolean) newValue) ? 1 : 0));
             getContext().sendBroadcast(i);
             return true;
         } else if (preference == mDT2SLock) {

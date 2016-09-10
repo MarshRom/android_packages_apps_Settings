@@ -50,6 +50,12 @@
        android:title="@string/hook_system_ui_translucent_notifications_pref"
        android:summary="@string/hook_system_ui_translucent_notifications_pref_summary"
        android:defaultValue="true" />
+       
+    <SwitchPreference
+       android:key="hook_system_ui_blurred_recent_app_enabled_pref"
+       android:title="@string/hook_system_ui_blurred_recent_app_enabled_pref"
+       android:summary="@string/hook_system_ui_blurred_recent_app_enabled_pref_summary"
+       android:defaultValue="true" />
 
     <SwitchPreference
        android:key="hook_system_ui_translucent_header_pref"
